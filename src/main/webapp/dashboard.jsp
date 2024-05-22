@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>服务平台信息查询</title>
+    <title>Dashboard</title>
     <style>
         body {
             background-color: pink;
@@ -13,39 +13,37 @@
             font-family: Arial, sans-serif;
         }
         .container {
+            width: 90%;
+            max-width: 800px;
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
             text-align: center;
-            width: 90%;
-            max-width: 500px;
         }
         button {
-            background-color: #4CAF50;
-            color: white;
+            width: 100%;
             padding: 10px;
+            margin: 10px 0;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 18px;
-            margin: 10px 0;
-            width: 100%;
+            cursor: pointer;
         }
         button:hover {
             background-color: #45a049;
-        }
-        p {
-            font-size: 18px;
+            color: white;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>服务平台信息查询</h1>
-    <p>此处放置服务平台信息查询的内容。</p>
-    <button onclick="window.location.href='dashboard.jsp'">返回主页</button>
+    <h1>欢迎，<%= ((com.example.model.User) request.getSession().getAttribute("user")).getUsername() %></h1>
+    <button onclick="window.location.href='attractions'">景点查看和预约</button>
+    <button onclick="window.location.href='checkin'">景区入园核销</button>
+    <button onclick="window.location.href='queue'">景区排队情况查询</button>
+    <button onclick="window.location.href='service'">餐饮医疗服务查询</button>
+    <button onclick="window.location.href='webservice'">服务平台信息查询</button>
 </div>
 </body>
 </html>

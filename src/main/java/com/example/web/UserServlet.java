@@ -103,12 +103,13 @@ public class UserServlet extends HttpServlet {
 
         if (userService.verifyUser(username, password)) {
             req.getSession().setAttribute("user", userService.findUserByUsername(username));
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("dashboard.jsp");
         } else {
             req.setAttribute("errorMsg", "用户名或密码无效。");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
     }
+
 
     private void updateUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String email = req.getParameter("email");
