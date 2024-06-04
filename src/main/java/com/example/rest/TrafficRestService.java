@@ -1,7 +1,7 @@
 package com.example.rest;
 
 import com.example.model.TrafficInfo;
-import com.example.service.TrafficService;
+import com.example.dao.TrafficService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

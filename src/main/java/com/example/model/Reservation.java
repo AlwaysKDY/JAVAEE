@@ -14,7 +14,7 @@ public class Reservation implements Serializable {
     private int reservationId;
 
     @ManyToOne
-    @JoinColumn(name = "userid", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne

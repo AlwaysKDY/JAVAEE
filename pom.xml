@@ -69,6 +69,13 @@
             <version>4.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.security.jacc</groupId>
+            <artifactId>jakarta.security.jacc-api</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+
     </dependencies>
 
 

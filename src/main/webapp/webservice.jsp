@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>服务平台信息查询</title>
     <style>
         body {
-            background-color: pink;
+            background-color: lightskyblue;
             font-size: 18px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
         }
         .container {
             display: flex;
@@ -15,27 +18,74 @@
         }
         .section {
             width: 45%;
-            background-color: white;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .weather-section {
+            background-color: lightyellow;
+        }
+        .traffic-section {
+            background-color: #ffe0e0; /* 淡红色底色 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
 <h1>服务平台信息查询</h1>
 <div class="container">
-    <div class="section">
+    <div class="section weather-section">
         <h2>景区天气信息</h2>
-        <c:forEach var="weather" items="${weatherInfoList}">
-            <p>${weather.weather_date}: ${weather.temperature} - ${weather.description}</p>
+        <c:forEach var="entry" items="${weatherInfoMap}">
+            <h3>景点: ${entry.key}</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th>日期</th>
+                    <th>温度</th>
+                    <th>天气</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="weather" items="${entry.value}">
+                    <tr>
+                        <td>${weather.weatherDate}</td>
+                        <td>${weather.temperature}°C</td>
+                        <td>${weather.description}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </c:forEach>
     </div>
-    <div class="section">
+    <div class="section traffic-section">
         <h2>公交信息</h2>
-        <c:forEach var="traffic" items="${trafficInfoList}">
-            <p>${traffic.route}</p>
-        </c:forEach>
+        <table>
+            <thead>
+            <tr>
+                <th>路线</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="traffic" items="${trafficInfoList}">
+                <tr>
+                    <td>${traffic.route}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

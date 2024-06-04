@@ -1,51 +1,101 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>景区入园核销</title>
+    <title>核销信息</title>
     <style>
         body {
-            background-color: pink;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
+            background-color: lightskyblue;
+            font-size: 18px;
         }
         .container {
-            background-color: white;
+            display: flex;
+            justify-content: space-around;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            margin: 10px 0;
+        .table-container {
+            width: 45%;
+        }
+        table {
             width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        button:hover {
-            background-color: #45a049;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
-        p {
-            font-size: 18px;
+        th {
+            background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>景区入园核销</h1>
-    <p>此处放置景区入园核销的内容。</p>
-    <button onclick="window.location.href='dashboard.jsp'">返回主页</button>
+    <div class="table-container">
+        <h2>核销成功</h2>
+        <table>
+            <tr>
+                <th>用户ID</th>
+                <th>景点ID</th>
+                <th>核销时间</th>
+                <th>状态</th>
+            </tr>
+            <c:forEach var="record" items="${checkinRecords}">
+                <c:if test="${record.status == 'checked in'}">
+                    <tr>
+                        <td>${record.user.userId}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${record.attraction.attractionId == null}">
+                                    0
+                                </c:when>
+                                <c:otherwise>
+                                    ${record.attraction.attractionId}
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>${record.checkinTime}</td>
+                        <td>${record.status}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </table>
+    </div>
+    <div class="table-container">
+        <h2>核销失败</h2>
+        <table>
+            <tr>
+                <th>用户ID</th>
+                <th>景点ID</th>
+                <th>核销时间</th>
+                <th>状态</th>
+            </tr>
+            <c:forEach var="record" items="${checkinRecords}">
+                <c:if test="${record.status != 'checked in'}">
+                    <tr>
+                        <td>${record.user.userId}</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${record.attraction.attractionId == null}">
+                                    0
+                                </c:when>
+                                <c:otherwise>
+                                    ${record.attraction.attractionId}
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>${record.checkinTime}</td>
+                        <td>${record.status}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </table>
+    </div>
 </div>
 </body>
 </html>

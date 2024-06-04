@@ -6,7 +6,7 @@
          version="4.0">
     <servlet>
         <servlet-name>ReservationServlet</servlet-name>
-        <servlet-class>com.example.web.ReservationServlet</servlet-class>
+        <servlet-class>com.example.servlet.ReservationServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>com.example.web.UserServlet</servlet-class>
+        <servlet-class>com.example.servlet.UserServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -26,7 +26,7 @@
 
     <servlet>
         <servlet-name>DashboardServlet</servlet-name>
-        <servlet-class>com.example.web.DashboardServlet</servlet-class>
+        <servlet-class>com.example.servlet.DashboardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DashboardServlet</servlet-name>
@@ -35,12 +35,44 @@
 
     <servlet>
         <servlet-name>AttractionServlet</servlet-name>
-        <servlet-class>com.example.web.AttractionServlet</servlet-class>
+        <servlet-class>com.example.servlet.AttractionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AttractionServlet</servlet-name>
         <url-pattern>/attractions</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CheckinServlet</servlet-name>
+        <servlet-class>com.example.servlet.CheckinServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckinServlet</servlet-name>
+        <url-pattern>/checkin</url-pattern>
+    </servlet-mapping>
+
+    <resource-env-ref>
+        <description>JMS Connection Factory</description>
+        <resource-env-ref-name>jms/ConnectionFactory</resource-env-ref-name>
+        <resource-env-ref-type>jakarta.jms.ConnectionFactory</resource-env-ref-type>
+    </resource-env-ref>
+
+    <ejb>
+        <ejb-name>TicketMDB</ejb-name>
+        <ejb-class>com.example.jms.TicketMDB</ejb-class>
+        <transaction-type>Container</transaction-type>
+        <activation-config>
+            <activation-config-property>
+                <activation-config-property-name>destinationType</activation-config-property-name>
+                <activation-config-property-value>jakarta.jms.Queue</activation-config-property-value>
+            </activation-config-property>
+            <activation-config-property>
+                <activation-config-property-name>destinationLookup</activation-config-property-name>
+                <activation-config-property-value>java:/jms/queue/TicketQueue</activation-config-property-value>
+            </activation-config-property>
+        </activation-config>
+    </ejb>
 
     <resource-ref>
         <description>MySQL DataSource</description>

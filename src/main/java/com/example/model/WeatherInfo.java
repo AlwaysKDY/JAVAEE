@@ -12,8 +12,9 @@ public class WeatherInfo {
     @Column(name = "weather_id", nullable = false)
     private int weatherId;
 
-    @Column(name = "attraction_id", nullable = false)
-    private int attractionId;
+    @ManyToOne
+    @JoinColumn(name = "attraction_id", nullable = false)
+    private Attraction attraction;
 
     @Column(name = "weather_date", nullable = false)
     private Timestamp weatherDate;
@@ -36,12 +37,12 @@ public class WeatherInfo {
         this.weatherId = weatherId;
     }
 
-    public int getAttractionId() {
-        return attractionId;
+    public Attraction getAttraction() {
+        return attraction;
     }
 
-    public void setAttractionId(int attractionId) {
-        this.attractionId = attractionId;
+    public void setAttraction(Attraction attraction) {
+        this.attraction = attraction;
     }
 
     public Timestamp getWeatherDate() {

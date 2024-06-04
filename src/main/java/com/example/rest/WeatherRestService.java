@@ -1,7 +1,7 @@
 package com.example.rest;
 
 import com.example.model.WeatherInfo;
-import com.example.service.WeatherService;
+import com.example.dao.WeatherService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -19,6 +19,6 @@ public class WeatherRestService {
     @Path("/forecast")
     @Produces(MediaType.APPLICATION_JSON)
     public List<WeatherInfo> getWeatherForecast() {
-        return weatherService.getWeatherForecast();
+        return (List<WeatherInfo>) weatherService.getWeatherForecastByAttraction();
     }
 }

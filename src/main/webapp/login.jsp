@@ -5,7 +5,7 @@
     <title>登录</title>
     <style>
         body {
-            background-color: pink;
+            background-color: lightskyblue;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,27 +14,31 @@
         }
         form {
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            font-size: 18px;
+            font-size: 20px;
+            width: 50%;
+            min-width: 350px;
+            max-width: 600px;
         }
         input[type="text"], input[type="password"], input[type="email"] {
-            width: 90%;
-            padding: 10px;
+            width: 100%;
+            padding: 15px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 20px;
         }
         input[type="submit"] {
+            width: 80%;
             background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            padding: 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 20px;
         }
         input[type="submit"]:hover {
             background-color: #45a049;

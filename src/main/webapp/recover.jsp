@@ -5,7 +5,7 @@
     <title>找回密码</title>
     <style>
         body {
-            background-color: pink;
+            background-color: lightskyblue;
             display: flex;
             justify-content: center;
             align-items: center;

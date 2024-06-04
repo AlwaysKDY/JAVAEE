@@ -5,7 +5,7 @@
     <title>修改个人信息</title>
     <style>
         body {
-            background-color: pink;
+            background-color: lightskyblue;
             display: flex;
             justify-content: center;
             align-items: center;
