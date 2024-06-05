@@ -23,7 +23,7 @@
             max-width: 600px;
         }
         input[type="text"], input[type="password"], input[type="email"] {
-            width: 100%;
+            width: 90%;
             padding: 15px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -31,7 +31,7 @@
             font-size: 20px;
         }
         input[type="submit"] {
-            width: 80%;
+            width: 100%;
             background-color: #4CAF50;
             color: white;
             padding: 15px;

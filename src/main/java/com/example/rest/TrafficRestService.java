@@ -1,7 +1,8 @@
 package com.example.rest;
 
 import com.example.model.TrafficInfo;
-import com.example.dao.TrafficService;
+import com.example.service.TrafficService;
+
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -16,9 +17,8 @@ public class TrafficRestService {
     private TrafficService trafficService;
 
     @GET
-    @Path("/info")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<TrafficInfo> getTrafficInfo() {
+    public List<TrafficInfo> getAllTrafficInfo() {
         return trafficService.getAllTrafficInfo();
     }
 }

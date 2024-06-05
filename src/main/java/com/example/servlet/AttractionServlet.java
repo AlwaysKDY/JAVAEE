@@ -1,9 +1,9 @@
 package com.example.servlet;
 
-import com.example.model.Attraction;
 import com.example.dao.AttractionDao;
+import com.example.model.Attraction;
 
-import jakarta.ejb.EJB;
+import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet("/attractions")
 public class AttractionServlet extends HttpServlet {
 
-    @EJB
+    @Inject
     private AttractionDao attractionService;
 
     @Override

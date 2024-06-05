@@ -11,9 +11,13 @@ import java.util.List;
 public class AttractionDao {
 
     @PersistenceContext
-    private EntityManager em;
+    private EntityManager entityManager;
 
     public List<Attraction> getAllAttractions() {
-        return em.createQuery("SELECT a FROM Attraction a", Attraction.class).getResultList();
+        return entityManager.createQuery("SELECT a FROM Attraction a", Attraction.class).getResultList();
+    }
+
+    public Attraction getAttractionById(int id) {
+        return entityManager.find(Attraction.class, id);
     }
 }
