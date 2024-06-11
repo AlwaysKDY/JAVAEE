@@ -15,7 +15,7 @@ public class UserService {
     private EntityManager em;
 
     public void registerUser(User user) {
-        user.setPassword(PasswordEncryptor.encrypt(user.getPassword()));
+        user.setPassword(user.getPassword());
         user.setRegistrationDate(new Timestamp(System.currentTimeMillis()));
         em.persist(user);
     }

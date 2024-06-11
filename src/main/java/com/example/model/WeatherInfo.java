@@ -28,7 +28,6 @@ public class WeatherInfo {
     @Column(name = "update_time", nullable = false)
     private Timestamp updateTime;
 
-    // Getters and Setters
     public int getWeatherId() {
         return weatherId;
     }

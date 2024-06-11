@@ -3,6 +3,7 @@ package com.example.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+//使用SHA-256哈希算法对密码进行加密
 public class PasswordEncryptor {
 
     public static String encrypt(String password) {

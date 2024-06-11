@@ -18,18 +18,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@WebServlet("/webservice")
+@WebServlet("/webservice1")
 public class WebServiceServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Client client = ClientBuilder.newClient();
 
-        List<TrafficInfo> trafficInfoList = client.target("http://localhost:8080/JAVAEE-1.0-SNAPSHOT/api/traffic")
+        List<TrafficInfo> trafficInfoList = client.target("http://localhost:8080/JAVAEE-1.0-SNAPSHOT/traffic")
                 .request(MediaType.APPLICATION_JSON)
                 .get(new GenericType<List<TrafficInfo>>() {});
 
-        Map<String, List<WeatherInfo>> weatherInfoMap = client.target("http://localhost:8080/JAVAEE-1.0-SNAPSHOT/api/weather")
+        Map<String, List<WeatherInfo>> weatherInfoMap = client.target("http://localhost:8080/JAVAEE-1.0-SNAPSHOT/weather")
                 .request(MediaType.APPLICATION_JSON)
                 .get(new GenericType<List<WeatherInfo>>() {})
                 .stream()

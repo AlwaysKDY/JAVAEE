@@ -26,7 +26,7 @@ public class CheckinService {
 
     public boolean validateAndCheckin(int userId, Integer attractionId) {
         TypedQuery<Reservation> query;
-        if (attractionId == 0) {  // if attractionId is 0, treat it as main entrance
+        if (attractionId == 0) {
             query = em.createQuery(
                     "SELECT r FROM Reservation r WHERE r.user.userId = :userId AND r.attraction.attractionId IS NULL AND r.date = CURRENT_DATE",
                     Reservation.class);

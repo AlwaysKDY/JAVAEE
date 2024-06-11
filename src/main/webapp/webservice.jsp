@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %><!-- 引入fmt库 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@
                 <tbody>
                 <c:forEach var="weather" items="${entry.value}">
                     <tr>
-                        <td>${weather.weatherDate}</td>
+                        <td><fmt:formatDate value="${weather.weatherDate}" pattern="yyyy-MM-dd" /></td>
                         <td>${weather.temperature}°C</td>
                         <td>${weather.description}</td>
                     </tr>

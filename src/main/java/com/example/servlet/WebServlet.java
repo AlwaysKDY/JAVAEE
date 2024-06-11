@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.servlet.annotation.WebServlet("/111webservice")
+@jakarta.servlet.annotation.WebServlet("/webservice")
 public class WebServlet extends HttpServlet {
 
     @Inject
